@@ -234,7 +234,7 @@ function render() {
                     ${calloutsHtml}
                 </div>
                 <div class="card-footer">
-                    <span>Voir plus</span>
+                    <span>Voir définitions et propriétés</span>
                     <i data-lucide="arrow-right" style="width:16px"></i>
                 </div>
             `;
