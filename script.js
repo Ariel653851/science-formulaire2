@@ -1,6 +1,7 @@
 /**
  * SCIENFORM V2.4 - SCRIPT.JS
- * REVERTED TO DETAILED LEGEND VERSION (BEST STABILITY)
+ * REVERTED TO UNIFORM STYLE (BLUE PRIMARY)
+ * INCORPORATES "Voir définitions et propriétés"
  */
 
 const formulas = [
@@ -208,9 +209,9 @@ function render() {
         noResults.classList.add('hidden');
         filtered.forEach(f => {
             const card = document.createElement('div');
-            card.className = `formula-card bottom-diagram ${f.subject}`;
+            card.className = `formula-card bottom-diagram`;
             
-            // LEGEND LOGIC: Bottom callouts
+            // LEGEND LOGIC: Bottom Pills
             const unitList = f.units ? f.units.split(',') : [];
             const calloutsHtml = unitList.map((u) => {
                 const parts = u.trim().split('(');
@@ -249,7 +250,7 @@ function render() {
 
 function openModal(f) {
     const modalWindow = document.querySelector('.modal-window');
-    modalWindow.className = `modal-window glass ${f.subject}`;
+    modalWindow.className = `modal-window glass`;
 
     modalTitle.textContent = f.title;
     modalTag.textContent = `${f.subject.toUpperCase()} • ${f.level}`;
