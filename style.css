@@ -217,7 +217,7 @@ header {
 .diagram-area {
     position: relative;
     padding: 1.5rem;
-    min-height: 280px;
+    min-height: 400px; /* BIGGER AREA */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -226,14 +226,15 @@ header {
 }
 
 .card-eqn {
-    font-size: 3.8rem; /* GEANT */
+    font-size: 5.5rem; /* EXTREME GEANT */
     z-index: 2;
-    padding: 0.5rem 1rem;
+    padding: 1rem 2rem;
     background: white;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
-    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+    border-radius: 20px;
     color: var(--text);
     position: relative;
+    border: 3px solid #f1f5f9;
 }
 
 .callout {
@@ -246,12 +247,13 @@ header {
 }
 
 .callout-text {
-    font-size: 1.15rem; /* TRES GROS */
-    line-height: 1.2;
+    font-size: 1.4rem; /* EXTREME GROS */
+    line-height: 1.1;
     background: white;
-    padding: 6px 10px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    padding: 10px 15px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+    border: 2px solid var(--primary);
 }
 
 .callout-text strong {
@@ -262,14 +264,14 @@ header {
 
 .callout-text span {
     color: var(--text-muted);
-    font-size: 1rem;
+    font-size: 1.25rem;
     font-weight: 700;
 }
 
-/* Diagonal Arrows - ULTRA VISIBLES */
+/* Diagonal Arrows - EXTREME VISIBLES */
 .callout .arrow {
-    width: 65px; /* LONGER */
-    height: 5px; /* THICKER */
+    width: 90px; /* LONGER */
+    height: 10px; /* ULTRA THICK */
     background: var(--primary);
     position: relative;
 }
@@ -277,50 +279,50 @@ header {
 .callout .arrow::after {
     content: '';
     position: absolute;
-    width: 14px; /* GEANT DOT */
-    height: 14px;
+    width: 24px; /* EXTREME DOT */
+    height: 24px;
     background: var(--primary);
     border-radius: 50%;
-    top: -4.5px;
+    top: -7px;
 }
 
-/* Positioning callouts ULTRA CLOSE to center */
+/* Positioning callouts TOUCHING center */
 .callout.top-left {
-    top: 10%;
-    left: 8%;
+    top: 50px;
+    left: 20px;
     flex-direction: column-reverse;
     align-items: flex-start;
 }
 .callout.top-left .arrow {
-    transform: rotate(30deg);
+    transform: rotate(25deg);
     transform-origin: left;
-    margin-left: 10px;
+    margin-left: -5px;
 }
 
 .callout.top-right {
-    top: 10%;
-    right: 8%;
+    top: 50px;
+    right: 20px;
     flex-direction: column-reverse;
     align-items: flex-end;
     text-align: right;
 }
 .callout.top-right .arrow {
-    transform: rotate(-30deg);
+    transform: rotate(-25deg);
     transform-origin: right;
-    margin-right: 10px;
+    margin-right: -5px;
 }
 
 .callout.bottom-right {
-    bottom: 12%;
-    right: 8%;
+    bottom: 50px;
+    right: 20px;
     flex-direction: column;
     align-items: flex-end;
     text-align: right;
 }
 .callout.bottom-right .arrow {
-    transform: rotate(30deg);
+    transform: rotate(25deg);
     transform-origin: right;
-    margin-right: 10px;
+    margin-right: -5px;
 }
 
 .card-footer {
