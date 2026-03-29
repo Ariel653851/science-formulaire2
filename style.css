@@ -70,13 +70,15 @@ header {
 }
 
 .directed-by {
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 0.85rem;
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: 0.05em;
     color: var(--text-muted);
     margin-left: 3.4rem;
-    opacity: 0.6;
-    margin-top: -2px;
+    opacity: 0.9;
+    margin-top: -4px;
 }
 
 .icon-circle {
