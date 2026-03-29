@@ -214,30 +214,104 @@ header {
     padding: 1rem 0;
 }
 
-.card-quick-units-list {
-    font-size: 0.78rem;
-    color: var(--text-muted);
-    background: #f8fafc;
-    padding: 0.75rem;
-    border-radius: var(--radius-sm);
-    margin: 1rem 0;
+.diagram-area {
+    position: relative;
+    padding: 2.5rem 0.5rem;
+    min-height: 200px;
     display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
-    border: 1px dashed var(--border);
-}
-
-.card-quick-units-list span {
-    display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    font-weight: 500;
+    overflow: hidden;
 }
 
-.arrow-pointing {
+.card-eqn {
+    font-size: 2rem;
+    z-index: 2;
+    padding: 1rem;
+    background: white;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.03);
+    border-radius: 8px;
+}
+
+.callout {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.callout-text {
+    font-size: 0.78rem;
+    line-height: 1.25;
+}
+
+.callout-text strong {
+    display: block;
     color: var(--primary);
-    font-weight: 700;
-    margin: 0 0.4rem;
+}
+
+.callout-text span {
+    color: var(--text-muted);
+    font-size: 0.72rem;
+}
+
+/* Diagonal Arrows */
+.callout .arrow {
+    width: 30px;
+    height: 1px;
+    background: var(--primary);
+    position: relative;
+}
+
+.callout .arrow::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: var(--primary);
+    border-radius: 50%; /* Small dot at the end */
+    top: -2.5px;
+}
+
+/* Positioning callouts around center */
+.callout.top-left {
+    top: 5px;
+    left: 5px;
+    flex-direction: column-reverse;
+    align-items: flex-start;
+}
+.callout.top-left .arrow {
+    transform: rotate(45deg);
+    transform-origin: left;
+    margin-left: 10px;
+}
+
+.callout.top-right {
+    top: 5px;
+    right: 5px;
+    flex-direction: column-reverse;
+    align-items: flex-end;
+    text-align: right;
+}
+.callout.top-right .arrow {
+    transform: rotate(-45deg);
+    transform-origin: right;
+    margin-right: 10px;
+}
+
+.callout.bottom-right {
+    bottom: 5px;
+    right: 5px;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+}
+.callout.bottom-right .arrow {
+    transform: rotate(45deg);
+    transform-origin: right;
+    margin-right: 10px;
 }
 
 .card-footer {

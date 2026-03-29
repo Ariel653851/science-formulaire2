@@ -208,23 +208,37 @@ function render() {
         noResults.classList.add('hidden');
         filtered.forEach(f => {
             const card = document.createElement('div');
-            card.className = 'formula-card';
+            card.className = 'formula-card diagram-mode';
             
-            // LEGEND LOGIC: Extract "Symbole [Nom] (Unité)"
-            const quickUnitsHtml = f.units ? f.units.split(',').map(u => {
+            // LEGEND LOGIC: Create callouts for diagram
+            // We'll place up to 3 callouts around the formula
+            const unitList = f.units ? f.units.split(',') : [];
+            const calloutsHtml = unitList.map((u, i) => {
                 const parts = u.trim().split('(');
-                const desc = parts[0].trim(); // P [Poids]
+                const desc = parts[0].trim(); // Symbole [Nom]
                 const unit = parts[1] ? parts[1].replace(')', '') : '';
-                return `<span>${desc} <span class="arrow-pointing">→</span> ${unit}</span>`;
-            }).join('') : "";
+                const posClass = i === 0 ? 'top-left' : (i === 1 ? 'top-right' : 'bottom-right');
+                
+                return `
+                    <div class="callout ${posClass}">
+                        <div class="callout-text">
+                            <strong>${desc}</strong>
+                            <span>en ${unit}</span>
+                        </div>
+                        <div class="arrow"></div>
+                    </div>
+                `;
+            }).join('');
 
             card.innerHTML = `
                 <span class="card-tag ${f.subject}">${f.subject.toUpperCase()} • ${f.level}</span>
                 <h3>${f.title}</h3>
-                <div class="card-eqn">\\[ ${f.formula} \\]</div>
-                <div class="card-quick-units-list">${quickUnitsHtml}</div>
+                <div class="diagram-area">
+                    <div class="card-eqn">\\[ ${f.formula} \\]</div>
+                    ${calloutsHtml}
+                </div>
                 <div class="card-footer">
-                    <span>Voir Détails</span>
+                    <span>Voir Définition & Propriétés</span>
                     <i data-lucide="arrow-right" style="width:16px"></i>
                 </div>
             `;
